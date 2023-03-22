@@ -7,7 +7,7 @@ jobs:
   test-linux:
     docker:
       - image: cimg/base:current
-    working_directory: /root/asdf-lein
+    working_directory: /asdf-lein
     steps:
       - checkout
       - run:
@@ -19,7 +19,7 @@ jobs:
   test-macos:
     macos:
       xcode: 14.2.0
-    working_directory: /root/asdf-lein
+    working_directory: /asdf-lein
     steps:
       - checkout
       - run:
