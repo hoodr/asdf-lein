@@ -7,7 +7,7 @@ jobs:
   test-linux:
     docker:
       - image: cimg/base:current
-    working_directory: /asdf-lein
+    working_directory: ~/asdf-lein
     steps:
       - checkout
       - run:
@@ -19,14 +19,14 @@ jobs:
   test-macos:
     macos:
       xcode: 14.2.0
-    working_directory: /asdf-lein
+    working_directory: ~/asdf-lein
     steps:
       - checkout
       - run:
           command: |
             git clone https://github.com/asdf-vm/asdf.git asdf
             . asdf/asdf.sh
-            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
+            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY  'lein --version'
 workflows:
   test:
     jobs:
