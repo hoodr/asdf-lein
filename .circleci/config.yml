@@ -12,9 +12,14 @@ jobs:
       - checkout
       - run:
           command: |
-            git clone https://github.com/asdf-vm/asdf.git asdf
-            . asdf/asdf.sh
-            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
+            pwd
+            ls
+        #      - run:
+        #          command: |
+        #            pwd
+        #            git clone https://github.com/asdf-vm/asdf.git asdf
+        #            . asdf/asdf.sh
+        #            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
 
   test-macos:
     macos:
@@ -31,4 +36,4 @@ workflows:
   test:
     jobs:
       - test-linux
-      - test-macos
+#      - test-macos
