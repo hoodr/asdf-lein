@@ -1,8 +1,5 @@
 version: 2.1
 
-#- asdf plugin test <plugin-name> <plugin-url> [--asdf-tool-version <version>] [--asdf-plugin-gitref <git-ref>] [test-command*]
-#- asdf plugin test nodejs https://github.com/asdf-vm/asdf-nodejs.git node --version
-
 jobs:
   test-linux:
     docker:
@@ -12,14 +9,12 @@ jobs:
       - checkout
       - run:
           command: |
-            pwd
-            ls
-        #      - run:
-        #          command: |
-        #            pwd
-        #            git clone https://github.com/asdf-vm/asdf.git asdf
-        #            . asdf/asdf.sh
-        #            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
+            cd ~/
+            git clone https://github.com/asdf-vm/asdf.git asdf
+            . asdf/asdf.sh
+            asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
+            # asdf plugin test <plugin-name> <plugin-url> [--asdf-tool-version <version>] [--asdf-plugin-gitref <git-ref>] [test-command*]
+            # asdf plugin test nodejs https://github.com/asdf-vm/asdf-nodejs.git node --version
 
   test-macos:
     macos:
@@ -36,4 +31,4 @@ workflows:
   test:
     jobs:
       - test-linux
-#      - test-macos
+      - test-macos
