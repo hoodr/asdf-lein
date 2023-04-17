@@ -11,6 +11,7 @@ jobs:
           command: |
             cd ~/
             git clone https://github.com/asdf-vm/asdf.git asdf
+            ls
             . asdf/asdf.sh
             asdf plugin test lein $CIRCLE_WORKING_DIRECTORY 'lein --version'
             # asdf plugin test <plugin-name> <plugin-url> [--asdf-tool-version <version>] [--asdf-plugin-gitref <git-ref>] [test-command*]
